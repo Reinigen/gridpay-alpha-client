@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS Link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>GridPay</title>
+  </head>
+  <body>
+    <header class="bg-primary text-white text-center py-3">
+      <h1>GridPay Payment Entry</h1>
+    </header>
+    <main>
+      <!-- Meter Reading Form -->
+      <form
+        action="index.html"
+        method="POST"
+        class="container text-center shadow p-3 my-3"
+      >
+      <!-- Single File Upload Start -->
+      <section>
+        <h4>Single Customer Entry</h4>
+          <!-- Customer ID Entry -->
+        <div class="dropdown mb-3 text-start">
+          <label for="customer_id" class="form-label">Customer No.:</label><br />
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="customer_id">CSR</span>
+          <input
+            type="text"
+            name="customer_id"
+            id="customer_id"
+            class="form-control"
+            placeholder="Search ...-01-123"
+            aria-describedby="customer_id"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            oninput="filterBootstrapItems(this.value)"
+            required
+          />
+          <ul class="dropdown-menu w-100" id="dropdownMenu"></ul>
+        <br />   
+        </div>
+
+        <!-- Payment Entry Stuff -->
+        <div
+          class="d-md-flex flex-md-row flex-sm-column justify-content-evenly mb-3"
+        >
+          <!-- Payment Date -->
+          <div class="py-3 mx-3 flex-fill">
+            <label for="reading_date" class="form-label">Payment Date:</label
+            ><br />
+            <input
+              type="month"
+              name="reading_month"
+              id="reading_month"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <!-- Payment Entry -->
+          <div class="py-3 mx-3 flex-fill">
+            <label for="reading_entry" class="form-label">Payment Entry:</label
+            ><br />
+            <input
+              type="number"
+              name="reading_entry"
+              id="reading_entry"
+              class="form-control"
+              required
+            />
+          </div>
+        </div>
+
+
+        <!-- Meter Number Reading Image -->
+        <div class="input-group py-3 m-3">
+          <label class="input-group-text" for="inputGroupFile01">Upload Proof of Payment</label>
+          <input type="file" class="form-control" id="inputGroupFile01">
+        </div>
+      </section>
+      <!-- Single File Upload End -->
+        
+
+        <!-- Batch Upload Start -->
+         <section>
+            <p>or</p>
+            <h4>Batch File Upload</h4>
+            <!-- Form Input Group -->
+            <div class="input-group py-3 m-3">
+              <label class="input-group-text" for="inputGroupFile01">Upload .CSV File</label>
+              <input type="file" class="form-control" id="inputGroupFile01">
+            </div>
+         </section>
+       <!-- Batch Upload End -->
+
+
+        <!-- Buttons -->
+        <button type="submit" class="btn btn-primary">Submit Payment</button>
+      </form>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Actual JS for Customer No. -->
+    <script>
+      // List of items
+      let items = ["-01-1","-01-2","-01-3","-01-4","-01-5","-02-1","-02-2","-02-3","-02-4","-02-5"];
+
+      function populateBootstrapDropdown(list) {
+      const menu = document.getElementById('dropdownMenu');
+      menu.innerHTML = ''; // Clear previous items
+      list.forEach(item => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.className = 'dropdown-item';
+        a.textContent = item;
+        a.href = '#';
+        a.onclick = () => selectBootstrapItem(item);
+        li.appendChild(a);
+        menu.appendChild(li);
+      });
+    }
+
+    // Filter items based on user input
+    function filterBootstrapItems(query) {
+      const filtered = items.filter(item => 
+        item.toLowerCase().includes(query.toLowerCase())
+      );
+      populateBootstrapDropdown(filtered);
+    }
+
+    // Handle item selection
+    function selectBootstrapItem(item) {
+      document.getElementById('dropdownSearch').value = item;
+      const menu = bootstrap.Dropdown.getInstance(document.getElementById('dropdownSearch'));
+      menu.hide();
+    }
+
+    // Initialize dropdown with all items
+    populateBootstrapDropdown(items);
+    </script>
+  </body>
+</html>

@@ -1,13 +1,68 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Russo+One&display=swap");
+
+:root {
+  --primary-color: #10d9c5;
+  --light-mode-text: #090909;
+  --dark-mode-text: #ffffff;
+  --grey-1: #393939;
+  --grey-2: #e1e1e1;
+  --lighter-accent: #00433c;
+  --darker-accent: #01bd7e;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-logo {
+  font-family: "Russo One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-display {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: bold;
+}
+
+.text-content {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.gridpay-gradient {
+  background-color: linear-gradient(to right, #10d9c5, #00bb79);
+  background: linear-gradient(to right, #10d9c5, #00bb79);
+}
+
+form label {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: bold;
+}
+
+form button {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: bold;
+}
+
+.logo {
+  height: 2rem;
+}
+
+.logo-small {
+  height: 1rem;
 }

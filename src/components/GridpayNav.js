@@ -1,19 +1,24 @@
 import { Container, Image, Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-import { useContext } from "react";
-import UserContext from "../context/UserContext";
+import { Navigate, NavLink } from "react-router-dom";
 import Logo from "../assets/GP Logo No BG.png";
+import { useContext } from "react";
+import CompanyContext from "../context/CompanyContext";
 
-export default function GridPayNav({ CompanyName }) {
-  return (
+export default function GridPayNav() {
+  const { company } = useContext(CompanyContext);
+
+  return company.isActive !== false ? (
     <>
       <Container className="d-flex flex-column jusity-content-between">
         <Container className="d-flex pt-5 flex-column justify-content-around border-end">
           <Nav className="d-flex flex-column align-items-center">
-            {/* Company */}
-            <Nav.Link className="text-logo" as={NavLink} to="/company">
+            <Nav.Link
+              className="text-logo"
+              as={NavLink}
+              to="/switching-company"
+            >
               <Image src={Logo} style={{ width: "6rem" }}></Image>
-              <p className="d-none d-xl-inline text-title">Company Name</p>
+              <p className="d-none d-xl-inline text-title">{company.name}</p>
               <hr></hr>
             </Nav.Link>
             <Nav.Link as={NavLink} to="/dashboard">
@@ -41,5 +46,7 @@ export default function GridPayNav({ CompanyName }) {
         <p></p>
       </Container>
     </>
+  ) : (
+    <Navigate to="/company-selector" />
   );
 }

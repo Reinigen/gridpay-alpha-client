@@ -9,7 +9,7 @@ export default function GridPayNavbar() {
   // const { login, setLogin } = useContext(false);
 
   // useEffect(() => {}, [login]);
-  console.log("Hello From the Navbar", user);
+  // console.log("Hello From the Navbar", user);
 
   return user.id !== null ? (
     <>

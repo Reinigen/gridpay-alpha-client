@@ -18,6 +18,11 @@
   font-style: normal;
 }
 
+nav a {
+  text-decoration: none;
+  color: var(--light-mode-text);
+}
+
 .text-logo {
   font-family: "Russo One", sans-serif;
   font-weight: 400;
@@ -65,4 +70,16 @@ form button {
 
 .logo-small {
   height: 1rem;
+}
+
+.btn-important {
+  border: var(--light-mode-text) 1px solid;
+  background-color: var(--light-mode-text);
+  color: var(--primary-color);
+}
+
+.btn-important:hover {
+  border: var(--primary-color) 1px solid;
+  background-color: var(--dark-mode-text);
+  color: var(--light-mode-text);
 }

@@ -1,6 +1,6 @@
 import { Container, Navbar, Nav, Image } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import UserContext from "../context/UserContext";
 import Logo from "../assets/GP Logo No BG.png";
 
@@ -9,10 +9,11 @@ export default function GridPayNavbar() {
   // const { login, setLogin } = useContext(false);
 
   // useEffect(() => {}, [login]);
+  console.log("Hello From the Navbar", user);
 
   return user.id !== null ? (
     <>
-      <Navbar className="gridpay-gradient">
+      <Navbar className="gridpay-gradient justify-content-between">
         <Navbar.Brand className="text-logo" as={NavLink} to="/">
           <Image
             src={Logo}
@@ -20,38 +21,17 @@ export default function GridPayNavbar() {
           />
           GridPay
         </Navbar.Brand>
-      </Navbar>
-      <Container
-        className="d-inline-flex flex-column"
-        style={{ width: "280px" }}
-      >
-        <Nav className="d-grid flex-column align-items-stretch flex-shrink-0 me-auto">
-          <Nav.Link as={NavLink} to="/dashboard">
-            <i className="bi bi-house-door"> </i>
-            Dashboard
-          </Nav.Link>
-          <Nav.Link as={NavLink} to="/readings">
-            <i className="bi bi-speedometer2"> </i>
-            Readings
-          </Nav.Link>
-          <Nav.Link as={NavLink} to="/customers">
-            <i className="bi bi-people"> </i>
-            Customers
-          </Nav.Link>
-          <Nav.Link as={NavLink} to="/billings">
-            <i className="bi bi-receipt"> </i>
-            Billing
-          </Nav.Link>
-          <Nav.Link as={NavLink} to="/payments">
-            <i className="bi bi-cash"> </i>
-            Payments
-          </Nav.Link>
-          <Nav.Link as={NavLink} to="/logout">
+        <Container className="d-flex flex-row justify-content-end">
+          <Nav.Link as={NavLink} to="/logout" className="me-3">
             <i className="bi bi-box-arrow-right"> </i>
             Logout
           </Nav.Link>
-        </Nav>
-      </Container>
+          <Nav.Link as={NavLink} to="/profile" className="me-3">
+            <i className="bi bi-person"> </i>
+            Profile
+          </Nav.Link>
+        </Container>
+      </Navbar>
     </>
   ) : (
     <>

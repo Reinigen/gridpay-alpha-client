@@ -1,16 +1,7 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
-import {
-  Button,
-  ButtonGroup,
-  Container,
-  Form,
-  FormGroup,
-  Image,
-} from "react-bootstrap";
+import { ButtonGroup, Container, Form, FormGroup } from "react-bootstrap";
 import UserContext from "../context/UserContext";
-import Swal from "sweetalert2";
-import Logo from "../assets/GP Logo No BG.png";
 import AddCustomer from "../components/CustomerComponents/AddCustomer";
 import CompanyContext from "../context/CompanyContext";
 

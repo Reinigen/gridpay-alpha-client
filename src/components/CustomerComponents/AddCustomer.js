@@ -44,7 +44,7 @@ export default function AddCustomer({ fetchData }) {
         customerName: customerName,
         customerId: customerId,
         companyId: company.id,
-        customerAddress: customerAddress,
+        address: customerAddress,
       }),
     })
       .then((res) => res.json())
@@ -156,7 +156,7 @@ export default function AddCustomer({ fetchData }) {
           size="xl"
           onClick={() => openMultiple()}
         >
-          <i className="bi bi-plus-square"> </i>
+          <i className="bi bi-people"> </i>
           Add Multiple Customers
         </Button>
         <Modal show={multiple} onHide={closeMultiple}>
@@ -167,7 +167,11 @@ export default function AddCustomer({ fetchData }) {
             <Form>
               <Form.Group controlId="customersFile">
                 <Form.Label>Customers File:</Form.Label>
-                <Form.Control type="file" required />
+                <Form.Control
+                  type="file"
+                  accept=".xls,.xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+                  required
+                />
               </Form.Group>
             </Form>
           </Modal.Body>

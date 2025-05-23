@@ -10,7 +10,7 @@ export default function GridPayNav() {
   const { user } = useContext(UserContext);
 
   return user.id !== null ? (
-    company.isActive !== null ? (
+    company.id !== null ? (
       <>
         <Container className="d-flex flex-column jusity-content-between">
           <Container className="d-flex pt-5 flex-column justify-content-around border-end">

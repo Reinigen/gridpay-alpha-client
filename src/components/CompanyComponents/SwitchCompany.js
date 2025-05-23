@@ -1,12 +1,10 @@
 import { useContext, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import CompanyContext from "../context/CompanyContext";
+import CompanyContext from "../../context/CompanyContext";
 
 export default function SwitchCompany() {
-  const { setCompany, unsetCompany } = useContext(CompanyContext);
+  const { setCompany } = useContext(CompanyContext);
   console.log("Switching Company");
-
-  unsetCompany();
 
   useEffect(() => {
     setCompany({

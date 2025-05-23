@@ -15,6 +15,7 @@ import Login from "./pages/Login";
 import Logout from "./pages/Logout";
 import Readings from "./pages/Readings";
 import SwitchCompany from "./components/CompanyComponents/SwitchCompany";
+import CustomerView from "./pages/CustomerView";
 
 function App() {
   const [user, setUser] = useState({
@@ -79,6 +80,7 @@ function App() {
                   <Route path="/register" element={<Register />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/logout" element={<Logout />} />
+                  <Route path="/customers" element={<CustomerView />} />
                   <Route path="/readings" element={<Readings />} />
                   <Route
                     path="/company-selector"

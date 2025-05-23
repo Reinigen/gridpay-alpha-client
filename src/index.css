@@ -83,3 +83,19 @@ form button {
   background-color: var(--dark-mode-text);
   color: var(--light-mode-text);
 }
+
+.btn-options {
+  border: var(--primary-color) 1px solid;
+  background-color: var(--dark-mode-text);
+  color: var(--light-mode-text);
+}
+
+.btn-options:hover {
+  border: var(--light-mode-text) 1px solid;
+  background-color: var(--light-mode-text);
+  color: var(--primary-color);
+}
+
+#company-button {
+  width: 30%;
+}
